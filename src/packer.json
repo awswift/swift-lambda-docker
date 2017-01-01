@@ -1,8 +1,8 @@
 {
     "variables": {
         "ami_name": "",
-        "dockerhub_user": "{{env `DOCKERHUB_USER`}",
-        "dockerhub_password": "{{env `DOCKERHUB_PASSWORD`}"
+        "dockerhub_user": "{{env `DOCKERHUB_USER`}}",
+        "dockerhub_password": "{{env `DOCKERHUB_PASSWORD`}}"
     },
     "builders": [
         {
