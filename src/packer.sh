@@ -19,5 +19,7 @@ docker build -t awswift/swift-deps:$TAG base
 # docker build -t awswift/swiftda:$TAG swiftda
 # docker tag awswift/swiftda:$TAG awswift/swiftda:latest
 
+docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+docker push awswift/swift-deps:$TAG
 # docker push awswift/swiftda:$TAG
 # docker push awswift/swiftda:latest

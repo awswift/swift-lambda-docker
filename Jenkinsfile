@@ -7,7 +7,10 @@ def doit() {
     def amiId
 
     stage('packer') {
-        sh "packer build -var ami_name=${amiName} src/packer.json"
+        def cred = [$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASSWORD']
+        withCredentials([cred]) {
+            sh "packer build -var ami_name=${amiName} src/packer.json"            
+        }
     }
 
     stage('delete ami') {

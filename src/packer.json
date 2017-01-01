@@ -1,6 +1,8 @@
 {
     "variables": {
-        "ami_name": ""
+        "ami_name": "",
+        "dockerhub_user": "{{env `DOCKERHUB_USER`}",
+        "dockerhub_password": "{{env `DOCKERHUB_PASSWORD`}"
     },
     "builders": [
         {
@@ -30,7 +32,11 @@
         {
             "type": "shell",
             "script": "src/packer.sh",
-            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+            "environment_vars": [
+                "DOCKERHUB_USER={{user `dockerhub_user`}}",
+                "DOCKERHUB_PASSWORD={{user `dockerhub_password`}}"
+            ]
         }
     ]
 }
