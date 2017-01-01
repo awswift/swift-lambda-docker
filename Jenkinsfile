@@ -3,7 +3,7 @@ def doit() {
         checkout scm
     }
 
-    def amiName = ""
+    def amiName = "swiftda-temp-${env.BUILD_ID}"
     def amiId
 
     stage('packer') {

@@ -12,7 +12,6 @@
             "vpc_id": "vpc-ac2eefc8",
             "subnet_id": "subnet-4177c337",
             "associate_public_ip_address": true,
-            "user_data_file": "userdata.sh",
             "ami_name": "{{user `ami_name`}}",
             "source_ami_filter": {
                 "owners": ["137112412989"],
