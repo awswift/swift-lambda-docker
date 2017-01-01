@@ -20,7 +20,14 @@
                 "filters": {
                     "name": "amzn-ami-hvm-2016.09.1.20161221-x86_64-gp2"
                 }
-            }
+            },
+            "launch_block_device_mappings": [
+                {
+                    "device_name": "/dev/sda1",
+                    "volume_size": 100,
+                    "delete_on_termination": true
+                } 
+            ]
         }
     ],
     "provisioners": [
