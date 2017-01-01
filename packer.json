@@ -24,7 +24,8 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "packer.sh"
+            "script": "packer.sh",
+            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
         }
     ]
 }
