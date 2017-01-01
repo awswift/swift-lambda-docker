@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euxo pipefail
 
+cd /tmp/src
+
 yum -y install docker
 service docker start
 

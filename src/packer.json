@@ -23,6 +23,11 @@
     ],
     "provisioners": [
         {
+            "type": "file",
+            "source": "src",
+            "destination": "/tmp"
+        },
+        {
             "type": "shell",
             "script": "packer.sh",
             "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
