@@ -21,7 +21,7 @@ def doit() {
 node('mini') {
     ansiColor('xterm') {
         timestamps {
-            timeout(30) {
+            timeout(90) {
                 doit()
             }
         }
