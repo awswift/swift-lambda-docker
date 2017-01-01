@@ -7,7 +7,7 @@ def doit() {
     def amiId
 
     stage('packer') {
-        sh "packer build -var ami_name=${amiName} packer.json"
+        sh "packer build -var ami_name=${amiName} src/packer.json"
     }
 
     stage('delete ami') {
