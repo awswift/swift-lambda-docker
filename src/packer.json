@@ -15,16 +15,13 @@
             "subnet_id": "subnet-52c94636",
             "associate_public_ip_address": true,
             "ami_name": "{{user `ami_name`}}",
-            "source_ami_filter": {
-                "owners": ["137112412989"],
-                "filters": {
-                    "name": "amzn-ami-hvm-2016.09.1.20161221-x86_64-gp2"
-                }
-            },
+            "source_ami": "ami-28cff44b",
             "launch_block_device_mappings": [
                 {
-                    "device_name": "/dev/sda1",
+                    "device_name": "/dev/xvda",
                     "volume_size": 100,
+                    "volume_type": "gp2",
+                    "snapshot_id": "snap-034e034300f3d96d0",
                     "delete_on_termination": true
                 } 
             ]
