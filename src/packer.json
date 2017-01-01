@@ -29,7 +29,7 @@
         },
         {
             "type": "shell",
-            "script": "packer.sh",
+            "script": "src/packer.sh",
             "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
         }
     ]
