@@ -1,4 +1,4 @@
-node('docker') {
+def doit() {
     stage('git') {
         checkout scm
     }
@@ -12,5 +12,15 @@ node('docker') {
 
     stage('delete ami') {
         sh "aws ec2 deregister-image --region ap-southeast-2 --image-id ${amiId}"
+    }
+}
+
+node('mini') {
+    ansiColor('xterm') {
+        timestamps {
+            timeout(30) {
+                doit()
+            }
+        }
     }
 }
