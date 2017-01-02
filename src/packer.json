@@ -1,6 +1,7 @@
 {
     "variables": {
         "ami_name": "",
+        "tag": "",
         "dockerhub_user": "{{env `DOCKERHUB_USER`}}",
         "dockerhub_password": "{{env `DOCKERHUB_PASSWORD`}}"
     },
@@ -36,9 +37,15 @@
         },
         {
             "type": "shell",
-            "script": "src/packer.sh",
+            "scripts": [
+                "src/setup.sh",
+                "src/build.sh",
+                "src/push.sh"
+            ],
+            "remote_folder": "/tmp/src",
             "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
             "environment_vars": [
+                "TAG={{user `tag`}}",
                 "DOCKERHUB_USER={{user `dockerhub_user`}}",
                 "DOCKERHUB_PASSWORD={{user `dockerhub_password`}}"
             ]

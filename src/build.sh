@@ -1,11 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
 
-cd /tmp/src
-
-yum -y install docker
-service docker start
-
 TAG="0.1"
 
 docker build -t awswift/swift-deps:$TAG base
@@ -17,8 +12,3 @@ docker cp $CID:/swiftbuild/package/swift-linux-x86_64-amzn.tgz swiftda/swift-lin
 docker rm $CID
 
 docker build -t awswift/swiftda:$TAG swiftda
-docker tag awswift/swiftda:$TAG awswift/swiftda:latest
-
-docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
-docker push awswift/swiftda:$TAG
-docker push awswift/swiftda:latest

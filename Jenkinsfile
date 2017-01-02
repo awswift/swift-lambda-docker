@@ -3,12 +3,11 @@ def doit() {
         checkout scm
     }
 
-
     stage('packer') {
         def amiName = "swiftda-temp-${env.BUILD_ID}"
         def cred = [$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASSWORD']    
         withCredentials([cred]) {
-            sh "packer build -var ami_name=${amiName} src/packer.json | tee packer.log"            
+            sh "packer build -var ami_name=${amiName} tag=0.1 src/packer.json | tee packer.log"            
         }
     }
 
