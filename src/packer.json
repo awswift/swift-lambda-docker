@@ -43,7 +43,7 @@
                 "src/push.sh"
             ],
             "remote_folder": "/tmp/src",
-            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+            "execute_command": "cd /tmp/src && sudo sh -c '{{ .Vars }} {{ .Path }}'",
             "environment_vars": [
                 "TAG={{user `tag`}}",
                 "DOCKERHUB_USER={{user `dockerhub_user`}}",
